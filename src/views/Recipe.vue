@@ -33,9 +33,7 @@ export default {
     },
     methods: {
         getRecipe(recipeId) {
-            console.log('getting recipe');
             axios.get(`https://boiling-ravine-78507.herokuapp.com/api/recipe/${recipeId}`).then((result) => {
-                console.log(result);
                 this.recipe = result.data.result;
             });
         },

@@ -28,7 +28,6 @@ export default {
     methods: {
         fetchRecipes() {
             axios.get('https://boiling-ravine-78507.herokuapp.com/api/recipes').then((result) => {
-                console.log(result);
                 const recipes = result.data.results;
                 const recipeArray = [];
                 recipes.forEach((recipe) => {
@@ -36,16 +35,13 @@ export default {
                     recipeObj.url = `/recipe/${recipe._id}`;
                     recipeArray.push(recipeObj);
                 });
-                console.log(recipeArray);
                 this.recipes = recipeArray;
             });
         },
         handleClick() {
-            console.log(this.recipes);
         },
     },
     mounted() {
-        console.log('mounted');
         this.fetchRecipes();
     },
 };
