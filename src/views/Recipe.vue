@@ -40,7 +40,6 @@ export default {
     },
     mounted() {
         const { recipeId } = this.$route.params;
-        console.log('recipeId', recipeId);
 
         this.getRecipe(recipeId);
     },
