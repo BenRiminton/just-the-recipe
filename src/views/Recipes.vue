@@ -56,9 +56,6 @@ export default {
         row-gap:20px;
     }
 
-    .flex-grid>.recipe-card {
-        flex-basis: 25%;
-    }
     a, a:hover {
         color:#FFFFFF;
         text-decoration: none;
