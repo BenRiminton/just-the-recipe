@@ -11,8 +11,9 @@
 
     <div class="flex-container">
         <div class="recipe-container">
-            <Ingredients />
-            <Method />
+            <Ingredients class="grid-three-child" :ingredients="recipe.ingredients" />
+            <Method class="grid-three-child" :steps="recipe.steps" />
+            <div class="grid-three-child"></div>
         </div>
     </div>
 </template>
@@ -35,6 +36,7 @@ export default {
         getRecipe(recipeId) {
             axios.get(`https://boiling-ravine-78507.herokuapp.com/api/recipe/${recipeId}`).then((result) => {
                 this.recipe = result.data.result;
+                console.log(this.recipe);
             });
         },
     },
@@ -46,8 +48,12 @@ export default {
 };
 </script>
 <style scoped>
+
+    .grid-three-child {
+        flex-basis:33%;
+    }
     a,a:hover {
-        color:#ffffff;
+        color:#222;
         text-decoration: none;
     }
 
@@ -62,15 +68,20 @@ export default {
         margin:auto;
         padding-top:30px;
         gap:20px;
-    }
-
-    .flex-container {
-        text-align: center;
+        text-align: left;
     }
 
     @media only screen and (max-width: 800px) {
         .recipe-container {
             flex-direction: column;
         }
+    }
+
+    @media only screen and (max-width: 800px) {
+        .grid-three-child {
+        flex-basis:33%;
+        padding-left:25px;
+        padding-right:25px;
+    }
     }
 </style>

@@ -57,7 +57,7 @@ export default {
     }
 
     a, a:hover {
-        color:#FFFFFF;
+        color:#222;
         text-decoration: none;
     }
 </style>

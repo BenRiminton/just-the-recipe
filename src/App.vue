@@ -29,7 +29,7 @@ export default {
 }
 html, body,#app {
   height:100%;
-  background:#232323;
-  color:#FFFFFF;
+  background:#FFF;
+  color:#232323;
 }
 </style>
