@@ -1,8 +1,8 @@
 <template>
     <div class="method-container">
-        <h4>Method</h4>
+        <h4 class="method-header">Method</h4>
         <ol>
-            <li v-for="step in steps" :key="step._id">{{step.detail}}</li>
+            <li v-for="step in steps" :key="step">{{step}}</li>
         </ol>
         </div>
 </template>
@@ -24,5 +24,8 @@ export default {
     }
     ol {
         padding:0px;
+    }
+    .method-header {
+        padding-bottom:20px;
     }
 </style>

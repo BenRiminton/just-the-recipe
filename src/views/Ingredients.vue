@@ -2,8 +2,8 @@
     <div class="ingredient-container">
         <h4 class="ingredient-header">Ingredients</h4>
         <ul>
-            <li v-for="ingredient in ingredients" :key="ingredient._id">
-                {{ingredient.quantity}}{{ingredient.measurement}} {{ingredient.ingredient}}
+            <li v-for="ingredient in ingredients" :key="ingredient">
+                {{ingredient}}
             </li>
         </ul>
     </div>
