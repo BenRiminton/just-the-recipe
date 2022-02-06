@@ -8,37 +8,48 @@
     <div class="recipe-container">
         <TextInput name="name"
                    label="Recipe Name"
+                   :disabled="loading"
                    @inputchange="handleInput" />
         <TextInput name="imageURL"
                    label="Recipe Image URL"
+                   :disabled="loading"
                    @inputchange="handleInput" />
         <TextInput name="ingredients"
                    variant="textarea"
                    label="Ingredients"
+                   :disabled="loading"
                    helpText="Please put each ingredient on a separate line."
                    @inputchange="handleInput" />
         <TextInput name="steps"
                    variant="textarea"
                    label="Method"
+                   :disabled="loading"
                    helpText="Please put each step on a separate line."
                    @inputchange="handleInput" />
         <button type="button"
                 class="btn btn-dark"
-                @click="handleSubmit">Submit Recipe</button>
+                :disabled="loading"
+                @click="handleSubmit">
+                <PulseLoader :loading="loading" color="#FFF" />
+                    <span v-if="!this.loading">Submit Recipe</span>
+        </button>
     </div>
 </template>
 <script>
 import axios from 'axios';
+import PulseLoader from 'vue-spinner/src/PulseLoader.vue';
 
 import TextInput from '../components/TextInput.vue';
 
 export default {
     components: {
         TextInput,
+        PulseLoader,
     },
     data() {
         return {
             recipe: {},
+            loading: false,
         };
     },
     methods: {
@@ -55,6 +66,7 @@ export default {
             this.recipe.ingredients = value.split('\n');
         },
         handleSubmit() {
+            this.loading = true;
             console.log(this.recipe);
             axios.post('https://boiling-ravine-78507.herokuapp.com/api/recipe', this.recipe)
                 .then((result) => {
@@ -62,6 +74,9 @@ export default {
                 })
                 .catch((error) => {
                     console.log('error', error);
+                })
+                .finally(() => {
+                    this.loading = false;
                 });
         },
     },
@@ -85,6 +100,11 @@ label {
         padding-top:30px;
         text-align: left;
         gap:20px;
+        padding-bottom:20px;
+}
+
+.v-spinner {
+    margin-top:5px;
 }
 
 @media only screen and (max-width: 860px) {
