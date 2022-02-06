@@ -35,7 +35,6 @@ export default {
     li {
         list-style: none;
     }
-
     li { background: #f7fafc; }
-li:nth-child(odd) { background: #FFF; }
+    li:nth-child(odd) { background: #FFF; }
 </style>
