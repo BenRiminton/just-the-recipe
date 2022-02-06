@@ -11,8 +11,12 @@
 
     <div class="flex-container">
         <div class="recipe-container">
-            <Ingredients class="ingredient-container" :ingredients="recipe.ingredients" />
-            <Method class="method-container" :steps="recipe.steps" />
+            <Ingredients v-if="recipe.ingredients && recipe.ingredients.length > 0"
+                        class="ingredient-container"
+                        :ingredients="recipe.ingredients" />
+            <Method v-if="recipe.steps && recipe.steps.length > 0"
+                    class="method-container"
+                    :steps="recipe.steps" />
 <!--             <div class="grid-three-child"></div>
  -->        </div>
     </div>
@@ -74,7 +78,6 @@ export default {
 
     .method-container {
         flex-basis:65%;
-        margin-left:20px;
     }
 
     @media only screen and (max-width: 800px) {
