@@ -14,5 +14,8 @@ export default {
     components: {
         HelloWorld,
     },
+    mounted() {
+        this.$router.push('/recipes');
+    },
 };
 </script>
