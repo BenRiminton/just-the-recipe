@@ -6,6 +6,8 @@
         </ol>
     </nav>
 
+    <PulseLoader style="padding-top:40px;" :loading="loading" color="#212529" size="20px" />
+
     <div class="flex-grid">
         <RecipeCard v-for="recipe in recipes"
         :key="recipe._id"
@@ -14,15 +16,18 @@
 </template>
 <script>
 import axios from 'axios';
+import PulseLoader from 'vue-spinner/src/PulseLoader.vue';
 import RecipeCard from './RecipeCard.vue';
 
 export default {
     components: {
         RecipeCard,
+        PulseLoader,
     },
     data() {
         return {
             recipes: [],
+            loading: true,
         };
     },
     methods: {
@@ -36,6 +41,7 @@ export default {
                     recipeArray.push(recipeObj);
                 });
                 this.recipes = recipeArray;
+                this.loading = false;
             });
         },
         handleClick() {
