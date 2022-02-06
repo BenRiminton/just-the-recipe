@@ -5,6 +5,10 @@
             <li class="breadcrumb-item active" aria-current="page">Add a recipe</li>
         </ol>
     </nav>
+    <Alert v-if="alertConfig.showAlert"
+           :variant="alertConfig.variant"
+           :message="alertConfig.message"
+           :links ="alertConfig.links" />
     <div class="recipe-container">
         <TextInput name="name"
                    label="Recipe Name"
@@ -40,16 +44,24 @@ import axios from 'axios';
 import PulseLoader from 'vue-spinner/src/PulseLoader.vue';
 
 import TextInput from '../components/TextInput.vue';
+import Alert from '../components/Alert.vue';
 
 export default {
     components: {
         TextInput,
         PulseLoader,
+        Alert,
     },
     data() {
         return {
             recipe: {},
             loading: false,
+            alertConfig: {
+                variant: 'danger',
+                message: '',
+                showAlert: false,
+                links: [],
+            },
         };
     },
     methods: {
@@ -67,16 +79,20 @@ export default {
         },
         handleSubmit() {
             this.loading = true;
-            console.log(this.recipe);
             axios.post('https://boiling-ravine-78507.herokuapp.com/api/recipe', this.recipe)
                 .then((result) => {
-                    console.log('result', result);
+                    const { body } = result.data;
+                    this.alertConfig.message = `Recipe created: <b>${body.name}</b>!`;
+                    this.alertConfig.variant = 'success';
                 })
                 .catch((error) => {
-                    console.log('error', error);
+                    const { err } = error.response.data;
+                    this.alertConfig.message = err.message;
+                    this.alertConfig.variant = 'danger';
                 })
                 .finally(() => {
                     this.loading = false;
+                    this.alertConfig.showAlert = true;
                 });
         },
     },
