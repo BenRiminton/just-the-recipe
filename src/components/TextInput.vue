@@ -5,9 +5,9 @@
         </label>
         <p v-if="helpText" class="help-text">{{helpText}}</p>
         <input v-if="!variant || variant==='text'" :name="name" :placeholder="placeholder"
-            v-bind:value="value" v-on:input="updateValue($event)" />
+            v-bind:value="value" v-on:input="updateValue($event)" :disabled="disabled" />
         <textarea v-if="variant==='textarea'" :name="name" :placeholder="placeholder"
-            v-bind:value="value" v-on:input="updateValue($event)" />
+            v-bind:value="value" v-on:input="updateValue($event)" :disabled="disabled" />
     </div>
 </template>
 <script>
@@ -19,6 +19,7 @@ export default {
         helpText: String,
         placeholder: String,
         variant: String,
+        disabled: Boolean,
     },
     methods: {
         updateValue(event) {
