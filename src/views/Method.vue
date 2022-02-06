@@ -2,7 +2,7 @@
     <div class="method-container">
         <h4 class="method-header">Method</h4>
         <ol>
-            <li v-for="step in steps" :key="step">{{step}}</li>
+            <li class="step" v-for="step in steps" :key="step">{{step}}</li>
         </ol>
         </div>
 </template>
@@ -17,15 +17,20 @@ export default {
 
 <style scoped>
     .method-container {
-        flex-basis:65%;
         background-color: #FFF;
         border-radius: 5px;
         padding:5px;
     }
     ol {
-        padding:0px;
+        padding:0px 20px;
     }
     .method-header {
         padding-bottom:20px;
     }
+
+    li.step {
+        padding-bottom:5px;
+    }
+    li { background: #f7fafc; }
+    li:nth-child(odd) { background: #FFF; }
 </style>

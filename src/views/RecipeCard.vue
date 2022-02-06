@@ -22,10 +22,14 @@ export default {
 </script>
 <style scoped>
     .card {
-        background:#121212;
+        background:#212529;
     }
     .card:hover {
-        background:#333333;
+        background:#3b3f41;
+    }
+
+    .card-text {
+        font-weight:bold;
     }
 
     a, a:hover {
