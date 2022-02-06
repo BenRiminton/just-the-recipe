@@ -1,7 +1,7 @@
 <template>
     <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Just the Recipe</a>
+    <router-link class="navbar-brand" to="/">Just the Recipe</router-link>
     <button class="navbar-toggler"
     type="button"
     data-bs-toggle="collapse"
