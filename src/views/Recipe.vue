@@ -36,7 +36,6 @@ export default {
         getRecipe(recipeId) {
             axios.get(`https://boiling-ravine-78507.herokuapp.com/api/recipe/${recipeId}`).then((result) => {
                 this.recipe = result.data.result;
-                console.log(this.recipe);
             });
         },
     },
@@ -79,9 +78,9 @@ export default {
 
     @media only screen and (max-width: 800px) {
         .grid-three-child {
-        flex-basis:33%;
-        padding-left:25px;
-        padding-right:25px;
-    }
+            flex-basis:33%;
+            padding-left:25px;
+            padding-right:25px;
+        }
     }
 </style>
