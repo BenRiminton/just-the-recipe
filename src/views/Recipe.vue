@@ -11,10 +11,10 @@
 
     <div class="flex-container">
         <div class="recipe-container">
-            <Ingredients class="grid-three-child" :ingredients="recipe.ingredients" />
-            <Method class="grid-three-child" :steps="recipe.steps" />
-            <div class="grid-three-child"></div>
-        </div>
+            <Ingredients class="ingredient-container" :ingredients="recipe.ingredients" />
+            <Method class="method-container" :steps="recipe.steps" />
+<!--             <div class="grid-three-child"></div>
+ -->        </div>
     </div>
 </template>
 <script>
@@ -48,9 +48,6 @@ export default {
 </script>
 <style scoped>
 
-    .grid-three-child {
-        flex-basis:33%;
-    }
     a,a:hover {
         color:#222;
         text-decoration: none;
@@ -71,22 +68,23 @@ export default {
         text-align: left;
     }
 
+    .ingredient-container {
+        flex-basis:35%;
+    }
+
+    .method-container {
+        flex-basis:65%;
+        margin-left:20px;
+    }
+
     @media only screen and (max-width: 800px) {
         .recipe-container {
             flex-direction: column;
+            padding:20px;
         }
 
         .header-image {
             max-width:350px;
         }
     }
-
-    @media only screen and (max-width: 800px) {
-        .grid-three-child {
-            flex-basis:33%;
-            padding-left:25px;
-            padding-right:25px;
-        }
-    }
-
 </style>
