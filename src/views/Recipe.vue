@@ -59,6 +59,7 @@ export default {
     .header-image {
         margin-top:15px;
         border-radius:12px;
+        max-height:480px;
     }
 
     .recipe-container {
@@ -74,6 +75,10 @@ export default {
         .recipe-container {
             flex-direction: column;
         }
+
+        .header-image {
+            max-width:350px;
+        }
     }
 
     @media only screen and (max-width: 800px) {
@@ -83,4 +88,5 @@ export default {
             padding-right:25px;
         }
     }
+
 </style>
