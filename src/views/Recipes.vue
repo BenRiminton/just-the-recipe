@@ -61,6 +61,7 @@ export default {
         justify-content: space-around;
         row-gap:20px;
         padding-bottom:20px;
+        align-items: center;
     }
 
     a, a:hover {
