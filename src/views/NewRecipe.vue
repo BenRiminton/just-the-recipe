@@ -18,6 +18,14 @@
                    label="Recipe Image URL"
                    :disabled="loading"
                    @inputchange="handleInput" />
+        <TextInput name="time"
+                   label="Recipe Time"
+                   :disabled="loading"
+                   @inputchange="handleInput" />
+        <TextInput name="servings"
+                   label="Servings"
+                   :disabled="loading"
+                   @inputchange="handleInput" />
         <TextInput name="ingredients"
                    variant="textarea"
                    label="Ingredients"
