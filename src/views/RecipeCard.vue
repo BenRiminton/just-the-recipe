@@ -23,6 +23,7 @@ export default {
 <style scoped>
     .card {
         background:#212529;
+        overflow: hidden;
     }
     .card:hover {
         background:#3b3f41;
@@ -30,6 +31,13 @@ export default {
 
     .card-text {
         font-weight:bold;
+    }
+
+    .card-img-top {
+        object-fit:cover;
+        height:300px;
+        width:300px;
+        align-self: center;
     }
 
     a, a:hover {
